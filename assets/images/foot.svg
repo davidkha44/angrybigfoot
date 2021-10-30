@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="102.781" height="78.784" viewBox="0 0 102.781 78.784">
+  <g id="Group_411" data-name="Group 411" transform="translate(-1.64 -5.142)">
+    <g id="Group_410" data-name="Group 410" transform="matrix(-0.105, 0.995, -0.995, -0.105, 110.2, 10.765)">
+      <path id="Path_1592" data-name="Path 1592" d="M49.3,44.869c1.843-2.458,6.169-19.066,3.35-27.688S32.963-6.742,11.253,3.293,5.928,44.869,5.928,44.869,14.735,84.6,35.011,80.3c7.056-1.5,9.6-6.432,9.6-6.432,3.452-5.825,1.409-16.664,1.409-16.664C46.519,50.324,47.46,47.327,49.3,44.869Z" transform="translate(5.171 22.357)" fill="#ffb333"/>
+      <ellipse id="Ellipse_12" data-name="Ellipse 12" cx="10.24" cy="13.825" rx="10.24" ry="13.825" transform="matrix(0.914, 0.407, -0.407, 0.914, 55.73, 0)" fill="#ffb333"/>
+      <ellipse id="Ellipse_13" data-name="Ellipse 13" cx="6.656" cy="8.704" rx="6.656" ry="8.704" transform="matrix(0.914, 0.407, -0.407, 0.914, 39.656, 3.02)" fill="#ffb333"/>
+      <ellipse id="Ellipse_14" data-name="Ellipse 14" cx="6.096" cy="7.971" rx="6.096" ry="7.971" transform="matrix(0.914, 0.407, -0.407, 0.914, 26.551, 3.02)" fill="#ffb333"/>
+      <ellipse id="Ellipse_15" data-name="Ellipse 15" cx="5.632" cy="7.68" rx="5.632" ry="7.68" transform="translate(11.28 7.422) rotate(13)" fill="#ffb333"/>
+      <ellipse id="Ellipse_16" data-name="Ellipse 16" cx="4.608" cy="6.656" rx="4.608" ry="6.656" transform="matrix(0.996, 0.087, -0.087, 0.996, 1.16, 17.891)" fill="#ffb333"/>
+    </g>
+    <path id="Path_1593" data-name="Path 1593" d="M35.777,32.56c1.338-1.783,4.477-13.835,2.431-20.092S23.92-4.893,8.166,2.39,4.3,32.56,4.3,32.56s6.391,28.832,21.1,25.711A10.292,10.292,0,0,0,32.373,53.6C34.878,49.377,33.4,41.511,33.4,41.511,33.756,36.518,34.44,34.343,35.777,32.56Z" transform="matrix(-0.105, 0.995, -0.995, -0.105, 75.658, 19.724)" fill="#ffc96f"/>
+  </g>
+</svg>
