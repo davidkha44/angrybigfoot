@@ -942,7 +942,7 @@ footer .fa:hover {
   }
 }
 
-@media screen and (max-width: 575px) {
+@media screen and (min-device-width: 320px) and (max-device-width: 812px) {
   #middle-road {
     flex-direction: column-reverse;
   }
