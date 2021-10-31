@@ -615,19 +615,23 @@
       return snapshot.docs.map(doc => doc.data());
     }
 
+    //Type index
+    let typeIndex = 0;
+    let slideIndex = 1;
+
     const check_rarity = value => {
-      value != 'all' ? filteredList = displayedList[0].filter(element => element.rarity === value) : filteredList = [...displayedList[0]];
+      slideIndex = 1;
+
+      value != 'all' ? filteredList = displayedList[typeIndex].filter(element => element.rarity === value) : filteredList = [...displayedList[typeIndex]];
       document.getElementsByClassName("slideshow")[0].innerHTML = "";
       filteredList.forEach(element => addSlideElement(element));
       document.getElementsByClassName("mySlides")[0].style.display = "block";
-      console.log(filteredList);
     }
 
-    //Type index
-    let typeIndex = 0;
-
-
     const check_type = (value) => {
+      slideIndex = 1;
+      document.getElementById("flexRadioDefault1").checked = true;
+
       switch (value) {
         case 'horn':
           typeIndex = 0
@@ -661,6 +665,10 @@
           typeIndex = 0
           break;
       }
+
+      document.getElementsByClassName("slideshow")[0].innerHTML = "";
+      displayedList[typeIndex].forEach(element => addSlideElement(element));
+      document.getElementsByClassName("mySlides")[0].style.display = "block";
     }
 
     const createSlideElement = (element) => {
@@ -703,7 +711,7 @@
     }
 
     const getDataOnLoad = () => {
-      getCollection('background')
+      getCollection('horns')
         .then((array) => displayedList.push(array))
         .then(() => displayedList[0].forEach(element => addSlideElement(element)))
         .then(() => document.getElementsByClassName("mySlides")[0].style.display = "block");
@@ -732,12 +740,14 @@
       showSlides(slideIndex += n);
     }
 
-    let slideIndex = 1;
-
-
     window.onload = (event) => {
       getDataOnLoad();
-      // getData('background');
+      getData('eyes');
+      getData('mouth');
+      getData('coat');
+      getData('clothes');
+      getData('background');
+      getData('originals');
     };
 
     showSlides(slideIndex);
