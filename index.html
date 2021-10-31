@@ -369,10 +369,10 @@
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="radio" name="trait" value="originals" id="flexRadioDefault6"
+            <input class="form-check-input" type="radio" name="trait" value="original" id="flexRadioDefault6"
               onchange="check_rarity(this.value)" />
             <label class="form-check-label" for="flexRadioDefault6">
-              Originals
+              Original
             </label>
           </div>
         </div>
@@ -624,20 +624,22 @@
     //Type index
     let typeIndex = 0;
     let slideIndex = 1;
+    let rarityValue = 'all';
+    let slides = [];
 
     const check_rarity = value => {
+      slides[slideIndex - 1].style.display = "none";
       slideIndex = 1;
-      value === 'originals' ? filteredList = [...displayedList[6]] :
-        value != 'all' ? filteredList = displayedList[typeIndex].filter(element => element.rarity === value) : filteredList = [...displayedList[typeIndex]];
-      document.getElementsByClassName("slideshow")[0].innerHTML = "";
-      filteredList.forEach(element => addSlideElement(element));
-      document.getElementsByClassName("mySlides")[0].style.display = "block";
+      rarityValue = value;
+      console.log(typeIndex, rarityValue);
+      rarityValue === 'original' ? slides = document.getElementsByClassName("mySlides original 6") :
+        rarityValue === 'all' ? slides = document.getElementsByClassName("mySlides " + typeIndex) : slides = document.getElementsByClassName("mySlides " + typeIndex + ' ' + rarityValue);
+      slides[0].style.display = "block";
     }
 
     const check_type = (value) => {
+      slides[slideIndex - 1].style.display = "none";
       slideIndex = 1;
-      document.getElementById("flexRadioDefault1").checked = true;
-
       switch (value) {
         case 'horn':
           typeIndex = 0
@@ -667,13 +669,17 @@
           typeIndex = 0
           break;
       }
+      document.getElementById("flexRadioDefault1").checked = true;
+      rarityValue = 'all';
+      rarityValue === 'original' ? slides = document.getElementsByClassName("mySlides original 6") :
+        rarityValue === 'all' ? slides = document.getElementsByClassName("mySlides " + typeIndex) : slides = document.getElementsByClassName("mySlides " + typeIndex + ' ' + rarityValue);
+      slides[0].style.display = "block";
+      console.log(typeIndex, rarityValue);
 
-      document.getElementsByClassName("slideshow")[0].innerHTML = "";
       displayedList[typeIndex].forEach(element => addSlideElement(element));
-      document.getElementsByClassName("mySlides")[0].style.display = "block";
     }
 
-    const createSlideElement = (element) => {
+    const createSlideElement = (element, indexType) => {
       let bgColor;
       switch (element.rarity) {
         case 'common':
@@ -701,7 +707,7 @@
       }
       //Container
       let container = document.createElement('div');
-      container.className = 'mySlides';
+      container.className = 'mySlides ' + element.rarity + ' ' + indexType;
       //Image
       let image = document.createElement('img');
       image.className = 'bigfoot-images';
@@ -738,24 +744,26 @@
       return container;
     }
 
-    const addSlideElement = element => {
-      document.getElementsByClassName("slideshow")[0].appendChild(createSlideElement(element));
+    const addSlideElement = (element, index) => {
+      document.getElementsByClassName("slideshow")[0].appendChild(createSlideElement(element, index));
     }
 
     const getDataOnLoad = () => {
       getCollection('horns')
         .then((array) => displayedList.push(array))
-        .then(() => displayedList[0].forEach(element => addSlideElement(element)))
+        .then(() => displayedList[0].forEach(element => addSlideElement(element, 0)))
         .then(() => document.getElementsByClassName("mySlides")[0].style.display = "block");
     }
 
-    const getData = (type) => {
-      getCollection(type).then(array => displayedList.push(array));
+    const getData = (type, index) => {
+      getCollection(type).then(array => displayedList.push(array))
+        .then(() => displayedList[index].forEach(element => addSlideElement(element, index)));
     }
 
     const showSlides = (n) => {
-      let slides = document.getElementsByClassName("mySlides");
-
+      rarityValue === 'original' ? slides = document.getElementsByClassName("mySlides original 6") :
+        rarityValue === 'all' ? slides = document.getElementsByClassName("mySlides " + typeIndex) : slides = document.getElementsByClassName("mySlides " + typeIndex + ' ' + rarityValue);
+      slides[0].style.display = 'block';
       if (n === slides.length + 1) { slideIndex = 1 }
       if (n === 0) { slideIndex = slides.length }
 
@@ -772,13 +780,13 @@
     }
 
     window.onload = (event) => {
-      getDataOnLoad();
-      getData('eyes');
-      getData('mouth');
-      getData('coat');
-      getData('clothes');
-      getData('background');
-      getData('originals');
+      getDataOnLoad('horns', 0);
+      getData('eyes', 1);
+      getData('mouth', 2);
+      getData('coat', 3);
+      getData('clothes', 4);
+      getData('background', 5);
+      getData('originals', 6);
     };
 
     showSlides(slideIndex);
