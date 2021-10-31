@@ -947,3 +947,21 @@ footer .fa:hover {
     flex-direction: column-reverse;
   }
 }
+
+.information {
+  text-align: center;
+  background-color: #0a224e;
+  border-radius: 10px;
+  margin-top: 10px;
+  padding-top: 10px;
+  padding-bottom: 4px;
+}
+
+.information p {
+  font: 300 15px/1.5 var(--sub-text-font);
+  color: #fff;
+}
+
+.mySlides {
+  display: none;
+}
