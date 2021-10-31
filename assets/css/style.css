@@ -942,7 +942,7 @@ footer .fa:hover {
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 575px) {
   #middle-road {
     flex-direction: column-reverse;
   }
@@ -950,7 +950,7 @@ footer .fa:hover {
 
 .information {
   text-align: center;
-  background-color: #0a224e;
+  background-color: #415880;
   border-radius: 10px;
   margin-top: 10px;
   padding-top: 10px;
@@ -958,8 +958,25 @@ footer .fa:hover {
 }
 
 .information p {
-  font: 300 15px/1.5 var(--sub-text-font);
-  color: #fff;
+  font-family: var(--main-font);
+}
+
+.rarity {
+  margin: 0;
+  padding: 0;
+  font-size: 32px;
+}
+
+.name {
+  margin-top: -5px;
+  margin-bottom: 5px;
+  font-size: 22px;
+}
+
+.drop {
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 22px;
 }
 
 .mySlides {

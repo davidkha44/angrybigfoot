@@ -629,7 +629,6 @@
       slideIndex = 1;
       value === 'originals' ? filteredList = [...displayedList[6]] :
         value != 'all' ? filteredList = displayedList[typeIndex].filter(element => element.rarity === value) : filteredList = [...displayedList[typeIndex]];
-      console.log(filteredList);
       document.getElementsByClassName("slideshow")[0].innerHTML = "";
       filteredList.forEach(element => addSlideElement(element));
       document.getElementsByClassName("mySlides")[0].style.display = "block";
@@ -675,6 +674,31 @@
     }
 
     const createSlideElement = (element) => {
+      let bgColor;
+      switch (element.rarity) {
+        case 'common':
+          bgColor = '#838383'
+          break;
+
+        case 'rare':
+          bgColor = '#415880'
+          break;
+
+        case 'legendary':
+          bgColor = '#822830'
+          break;
+
+        case 'mythic':
+          bgColor = '#42365C'
+          break;
+
+        case 'original':
+          bgColor = '#121212'
+          break;
+
+        default:
+          break;
+      }
       //Container
       let container = document.createElement('div');
       container.className = 'mySlides';
@@ -686,18 +710,23 @@
       // Legend
       let info = document.createElement('div');
       info.className = 'information';
+      info.style.backgroundColor = bgColor;
+
       //Rarity 
       let rarity = document.createElement('p');
       rarity.className = 'rarity';
       rarity.innerText = element.rarity.toUpperCase();
+      rarity.style.color = '#eee';
       //Name 
       let name = document.createElement('p');
       name.className = 'name';
       name.innerText = element.name.toUpperCase();
+      name.style.color = '#eee';
       //Drop chance 
       let drop = document.createElement('p');
       drop.className = 'drop';
       drop.innerText = String(element.drop) + ' %';
+      drop.style.color = '#eee';
 
       info.appendChild(rarity);
       info.appendChild(name);
