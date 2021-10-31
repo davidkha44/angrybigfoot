@@ -332,7 +332,6 @@
             <option value="coat">Coats</option>
             <option value="clothes">Clothes</option>
             <option value="bg">Backgrounds</option>
-            <option value="originals">Originals</option>
           </select>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="trait" id="flexRadioDefault1" value="all"
@@ -367,6 +366,13 @@
               onchange="check_rarity(this.value)" />
             <label class="form-check-label" for="flexRadioDefault5">
               Mythic
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="trait" value="originals" id="flexRadioDefault6"
+              onchange="check_rarity(this.value)" />
+            <label class="form-check-label" for="flexRadioDefault6">
+              Originals
             </label>
           </div>
         </div>
@@ -621,8 +627,9 @@
 
     const check_rarity = value => {
       slideIndex = 1;
-
-      value != 'all' ? filteredList = displayedList[typeIndex].filter(element => element.rarity === value) : filteredList = [...displayedList[typeIndex]];
+      value === 'originals' ? filteredList = [...displayedList[6]] :
+        value != 'all' ? filteredList = displayedList[typeIndex].filter(element => element.rarity === value) : filteredList = [...displayedList[typeIndex]];
+      console.log(filteredList);
       document.getElementsByClassName("slideshow")[0].innerHTML = "";
       filteredList.forEach(element => addSlideElement(element));
       document.getElementsByClassName("mySlides")[0].style.display = "block";
@@ -655,10 +662,6 @@
 
         case 'bg':
           typeIndex = 5
-          break;
-
-        case 'originals':
-          typeIndex = 6
           break;
 
         default:
