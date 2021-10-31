@@ -380,7 +380,7 @@
           <div class="row" style="align-items: center;padding: 20px;">
             <button onclick="plusSlides(-1)" class="btn carousel-control-prev-icon"></button>
             <!-- Swiper -->
-            <div class="col-6 mx-auto slideshow">
+            <div class="col-8 mx-auto slideshow">
             </div>
             <!-- Swiper -->
             <button onclick="plusSlides(1)" class="btn carousel-control-next-icon"></button>
@@ -755,7 +755,6 @@
 
     const showSlides = (n) => {
       let slides = document.getElementsByClassName("mySlides");
-      console.log(slides);
 
       if (n === slides.length + 1) { slideIndex = 1 }
       if (n === 0) { slideIndex = slides.length }
